@@ -1,0 +1,25 @@
+<svg width="520" height="420" viewBox="0 0 520 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Notebook illustration</title>
+  <desc id="desc">A notebook with organized notes and stationery.</desc>
+  <rect x="70" y="40" width="330" height="340" rx="8" fill="#FDF8EC" stroke="#2F3437" stroke-width="10"/>
+  <rect x="105" y="40" width="295" height="340" rx="8" fill="#FFFDF7"/>
+  <path d="M126 112H354" stroke="#CFD7D2" stroke-width="8" stroke-linecap="round"/>
+  <path d="M126 166H320" stroke="#CFD7D2" stroke-width="8" stroke-linecap="round"/>
+  <path d="M126 220H350" stroke="#CFD7D2" stroke-width="8" stroke-linecap="round"/>
+  <path d="M126 274H292" stroke="#CFD7D2" stroke-width="8" stroke-linecap="round"/>
+  <rect x="132" y="90" width="72" height="18" rx="4" fill="#2F6F73"/>
+  <rect x="132" y="144" width="104" height="18" rx="4" fill="#E0B86F"/>
+  <rect x="132" y="198" width="86" height="18" rx="4" fill="#597F5F"/>
+  <rect x="132" y="252" width="118" height="18" rx="4" fill="#A45B35"/>
+  <path d="M79 86H45" stroke="#2F3437" stroke-width="14" stroke-linecap="round"/>
+  <path d="M79 142H45" stroke="#2F3437" stroke-width="14" stroke-linecap="round"/>
+  <path d="M79 198H45" stroke="#2F3437" stroke-width="14" stroke-linecap="round"/>
+  <path d="M79 254H45" stroke="#2F3437" stroke-width="14" stroke-linecap="round"/>
+  <path d="M79 310H45" stroke="#2F3437" stroke-width="14" stroke-linecap="round"/>
+  <path d="M385 309L438 134C443 116 468 121 463 139L410 314L383 352L385 309Z" fill="#E0B86F" stroke="#2F3437" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M438 134L463 139" stroke="#2F3437" stroke-width="10" stroke-linecap="round"/>
+  <path d="M385 309L410 314" stroke="#2F3437" stroke-width="10" stroke-linecap="round"/>
+  <path d="M383 352L398 331L410 314" stroke="#2F3437" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="392" cy="76" r="22" fill="#597F5F" stroke="#2F3437" stroke-width="8"/>
+  <path d="M388 66L399 77L386 88" stroke="#FFFDF7" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

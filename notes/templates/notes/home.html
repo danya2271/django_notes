@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ preferences.language }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ copy.app_name }}</title>
+    <link rel="stylesheet" href="{% static 'notes/css/styles.css' %}">
+</head>
+<body class="theme-{{ preferences.theme }} font-{{ preferences.font_size }}">
+    <header class="app-header">
+        <div class="header-copy">
+            <p class="eyebrow">{{ copy.app_name }}</p>
+            <h1>{{ copy.headline }}</h1>
+            <p class="lead">{{ copy.lead }}</p>
+            <div class="visit-strip" aria-label="Cookie information">
+                <span>{{ copy.last_page }}: {{ last_page|default:copy.empty_cookie }}</span>
+                <span>{{ copy.last_visit }}: {{ last_visit|default:copy.empty_cookie }}</span>
+            </div>
+        </div>
+        <img class="hero-image" src="{% static 'notes/img/notebook.svg' %}" alt="Notebook with organized notes">
+    </header>
+
+    <main class="workspace">
+        <section class="panel">
+            <h2>{{ copy.new_note }}</h2>
+            <form method="post" class="form-stack" novalidate>
+                {% csrf_token %}
+                <input type="hidden" name="action" value="note">
+
+                <div class="form-field">
+                    <label for="{{ note_form.title.id_for_label }}">{{ note_form.title.label }}</label>
+                    {{ note_form.title }}
+                    {{ note_form.title.errors }}
+                </div>
+
+                <div class="form-field">
+                    <label for="{{ note_form.text.id_for_label }}">{{ note_form.text.label }}</label>
+                    {{ note_form.text }}
+                    {{ note_form.text.errors }}
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="{{ note_form.category.id_for_label }}">{{ note_form.category.label }}</label>
+                        {{ note_form.category }}
+                        {{ note_form.category.errors }}
+                    </div>
+
+                    <fieldset class="form-field fieldset">
+                        <legend>{{ note_form.priority.label }}</legend>
+                        {{ note_form.priority }}
+                        {{ note_form.priority.errors }}
+                    </fieldset>
+                </div>
+
+                <button class="button" type="submit">{{ copy.save_note }}</button>
+            </form>
+        </section>
+
+        <section class="panel">
+            <h2>{{ copy.settings }}</h2>
+            <form method="post" class="form-stack">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="preferences">
+
+                <fieldset class="form-field fieldset">
+                    <legend>{{ copy.theme }}</legend>
+                    {{ preferences_form.theme }}
+                    {{ preferences_form.theme.errors }}
+                </fieldset>
+
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="{{ preferences_form.language.id_for_label }}">{{ copy.language }}</label>
+                        {{ preferences_form.language }}
+                        {{ preferences_form.language.errors }}
+                    </div>
+
+                    <div class="form-field">
+                        <label for="{{ preferences_form.font_size.id_for_label }}">{{ copy.font_size }}</label>
+                        {{ preferences_form.font_size }}
+                        {{ preferences_form.font_size.errors }}
+                    </div>
+                </div>
+
+                <div class="theme-preview">
+                    {% for key, theme in themes.items %}
+                        <div class="swatch swatch-{{ key }}">
+                            <span></span>
+                            <strong>{{ theme.label }}</strong>
+                            <small>{{ theme.description }}</small>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <button class="button button-secondary" type="submit">{{ copy.save_settings }}</button>
+            </form>
+        </section>
+
+        <section class="notes-section">
+            <div class="section-heading">
+                <h2>{{ copy.notes }}</h2>
+                <span>{{ notes|length }}</span>
+            </div>
+
+            <div class="notes-grid">
+                {% for note in notes %}
+                    <article class="note-card priority-{{ note.priority }}">
+                        <div class="note-meta">
+                            <span>{{ note.category_label }}</span>
+                            <span>{{ note.priority_label }}</span>
+                        </div>
+                        <h3>{{ note.title }}</h3>
+                        <p>{{ note.text }}</p>
+                        <footer>
+                            <time>{{ note.created_at }}</time>
+                            {% if note.source == "demo" %}
+                                <span class="badge">{{ copy.demo_badge }}</span>
+                            {% else %}
+                                <span class="badge badge-user">{{ copy.saved_badge }}</span>
+                            {% endif %}
+                        </footer>
+                    </article>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+</body>
+</html>
