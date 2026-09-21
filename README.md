@@ -14,13 +14,13 @@
 
 ## Установка и запуск
 
+Запустите скрипт:
+
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
+./start.sh
 ```
+
+Скрипт сам создаст виртуальное окружение, установит зависимости, выполнит миграции и запустит сервер.
 
 После запуска откройте страницу:
 
@@ -31,8 +31,7 @@ http://127.0.0.1:8000/
 ## Запуск тестов
 
 ```bash
-source .venv/bin/activate
-python manage.py test
+.venv/bin/python manage.py test
 ```
 
 ## Структура проекта
